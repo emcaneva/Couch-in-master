@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1><U>Listando tipos de hospedaje</h1></U>
+
+<table class='table table-hover'>
+  <thead>
+    <tr>
+      <th>Descripcion</th>
+      <th>Estado</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @accommodation_types.each do |accommodation_type| %>
+      <tr>
+        <td><%= accommodation_type.descripcion %></td>
+        <td><%= accommodation_type.estado == nil ? "Vacio" : (accommodation_type.estado == true ? 'Activo' : 'Inactivo') %></td>
+        <td><%= link_to 'Editar ', edit_accommodation_type_path(accommodation_type), :method => :get, :class => "btn btn-warning" %></td> 
+       <td><%= link_to 'Eliminar', accommodation_type, class: "btn btn-warning" , method: :delete, data: { confirm: 'Estas seguro que desea eliminar?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Agregar nuevo tipo de hospedaje', new_accommodation_type_path %>
+
+
+
+

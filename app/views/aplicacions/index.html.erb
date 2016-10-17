@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Aplicacions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Couchinn</th>
+      <th>Descripcion</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @aplicacions.each do |aplicacion| %>
+      <tr>
+        <td><%= aplicacion.couchinn %></td>
+        <td><%= aplicacion.descripcion %></td>
+        <td><%= link_to 'Mostrar', aplicacion %></td>
+        <td><%= link_to 'Editar', edit_aplicacion_path(aplicacion) %></td>
+        <td><%= link_to 'Eliminar', aplicacion, method: :delete, data: { confirm: 'Esta seguro que desea eliminar?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Aplicacion', new_aplicacion_path %>
